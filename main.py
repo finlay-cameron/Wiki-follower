@@ -5,11 +5,13 @@ from selenium.webdriver.common.by import By
 
 #Config
 ses = webdriver.Chrome() #Can be set to different browser (not tested)
-fileName = "data.json" #Where to dump the data to
+fileName = "data.json" #Where to dump the data to. Will be overwritten.
 loops = 500
 
-#Mainloop
+#Setup
 indexes = 0 #In case of while loop
+with open(fileName, "w") as f: f.write("[]")
+    
 try:
     for i in range(loops): #Change to "while True:" to go until you interupt.
         urls = []
